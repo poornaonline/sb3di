@@ -1,18 +1,15 @@
 package com.poorna.di.controllers;
 
 import com.poorna.di.services.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class SetterInjectedController {
+public class Myi18nController {
 
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
-    @Autowired
-    @Qualifier("setterGreetingService")
-    public void setGreetingService(GreetingService greetingService) {
+    public Myi18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
